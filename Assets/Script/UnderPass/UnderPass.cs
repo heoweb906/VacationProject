@@ -36,6 +36,7 @@ public class UnderPass : MonoBehaviour
     }
 
 
+
     public void EndPointReached()
     {
         Debug.Log("엔드 포인트 작동했습니다.");

@@ -11,6 +11,7 @@ public class ObstacleDeath : MonoBehaviour
             PlayerController player = other.GetComponent<PlayerController>();
             if (player != null)
             {
+                Debug.Log("½ÇÇà");
                 player.DiePlayer();
             }
         }

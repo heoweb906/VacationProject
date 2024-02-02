@@ -84,8 +84,4 @@ public class SoundManager : MonoBehaviour
 
         // #. 추가되는 사운드들 적용해야 함
     }
-
-
-
-
 }

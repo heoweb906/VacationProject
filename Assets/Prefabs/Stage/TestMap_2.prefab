@@ -136,7 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1095243588126076378}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -777,7 +777,7 @@ GameObject:
   - component: {fileID: 6242198063187264421}
   - component: {fileID: 5590190009478544023}
   - component: {fileID: 6837753986310258903}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_2
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1090,7 +1090,7 @@ GameObject:
   - component: {fileID: 4148796633282459535}
   - component: {fileID: 8816431760595595681}
   - component: {fileID: 3355423319461600937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_1
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1217,7 +1217,7 @@ GameObject:
   - component: {fileID: 1639502737520469186}
   - component: {fileID: 2145912645164050286}
   - component: {fileID: 8443919880853383223}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_3
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1716,7 +1716,7 @@ GameObject:
   - component: {fileID: 7823291238579500599}
   - component: {fileID: 1922806532826328650}
   - component: {fileID: 5464199095640374819}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_6
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1961,7 +1961,7 @@ GameObject:
   - component: {fileID: 8502820406248014833}
   - component: {fileID: 8993921137523254316}
   - component: {fileID: 2104640871585997668}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_5
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -2789,6 +2789,7 @@ MonoBehaviour:
   position_Startpoint: {fileID: 9050606393175424361}
   position_Checkpoint: {fileID: 4707683882438296122}
   position_Endpoint: {fileID: 2649900769829519557}
+  player: {fileID: 0}
 --- !u!1 &6713836785950262670
 GameObject:
   m_ObjectHideFlags: 0
@@ -3069,7 +3070,7 @@ GameObject:
   - component: {fileID: 4973831440729051353}
   - component: {fileID: 63810664271001296}
   - component: {fileID: 8790141085058123904}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_4
   m_TagString: Floor
   m_Icon: {fileID: 0}

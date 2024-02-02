@@ -17,8 +17,8 @@ public class ItemBox_Fever : MonoBehaviour
             if (player != null && !bIsGet)
             {
                 bIsGet = true;
-
-                for(int i = 0; i < 5; i++)
+                player.RecordItemCnt();
+                for (int i = 0; i < 5; i++)
                 {
                     Debug.Log("½ÇÇà");
                     if(player.iNowFeverGauge >= 5)

@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 7764646612492863623}
   - component: {fileID: 2602921833214360368}
   - component: {fileID: 2988371652149606007}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_5
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -497,6 +497,7 @@ MonoBehaviour:
   position_Startpoint: {fileID: 3987795937639799143}
   position_Checkpoint: {fileID: 3473006603831521626}
   position_Endpoint: {fileID: 4618664251746865042}
+  player: {fileID: 0}
 --- !u!1 &3631584117287191299
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +761,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4824737577713116319}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -832,7 +833,7 @@ GameObject:
   - component: {fileID: 1880466173937884603}
   - component: {fileID: 8455465713374996902}
   - component: {fileID: 3198335629238393917}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_1
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1086,7 +1087,7 @@ GameObject:
   - component: {fileID: 1334034515873227872}
   - component: {fileID: 4525304418266705296}
   - component: {fileID: 7406742204153161879}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_4
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1213,7 +1214,7 @@ GameObject:
   - component: {fileID: 7498070417169328235}
   - component: {fileID: 1123316888143452910}
   - component: {fileID: 870280734621554478}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_6
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1467,7 +1468,7 @@ GameObject:
   - component: {fileID: 5248131248356212532}
   - component: {fileID: 9189571298951167757}
   - component: {fileID: 1185118527927148960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_2
   m_TagString: Floor
   m_Icon: {fileID: 0}
@@ -1594,7 +1595,7 @@ GameObject:
   - component: {fileID: 7828060463112395298}
   - component: {fileID: 9170812658041664877}
   - component: {fileID: 8844559585131359338}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Road_3
   m_TagString: Floor
   m_Icon: {fileID: 0}

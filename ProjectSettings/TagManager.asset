@@ -10,6 +10,7 @@ TagManager:
   - Coin
   - SkyFloor
   - FeverCoin
+  - New tag
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Floor
   - 
   - 
   - 
@@ -29,7 +30,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - PlayerDie
   - 
   - 
   - 

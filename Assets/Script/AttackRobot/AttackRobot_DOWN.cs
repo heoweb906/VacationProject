@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AttackRobot_DOWN : MonoBehaviour
 {
+    private PlayerController pplayer;
+
     [Header("로봇 능력치")]
     public float raycastDistance; // Raycast의 거리
     public float moveSpeed; // 이동 속도
@@ -12,6 +14,11 @@ public class AttackRobot_DOWN : MonoBehaviour
     private Transform playerTransform;
 
     private bool isHit = false;
+
+    private void Awake()
+    {
+        pplayer = FindObjectOfType<PlayerController>();
+    }
 
     private void Update()
     {
@@ -51,6 +58,7 @@ public class AttackRobot_DOWN : MonoBehaviour
     // #. 죽음 함수
     public void Die()
     {
+        pplayer.RecordAttackCnt();
         Destroy(gameObject);
     }
 

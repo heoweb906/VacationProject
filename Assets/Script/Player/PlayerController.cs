@@ -29,13 +29,14 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("플레이어 상태")]
-    public bool bIsRun; 
-    public bool bIsJump; 
-    public bool bIsSlide; 
+    public bool bIsRun;
+    public bool bIsJump;
+    public bool bIsSlide;
+    public bool bIsGround;
     public bool bIsDamage; // 데미지를 받은 상태인지, 짧은 무적
     public bool bIsFever;
     public bool bIsStun;
-    
+
     public bool bIsDie;
     public bool bAttackCoolTime;
 
@@ -43,9 +44,11 @@ public class PlayerController : MonoBehaviour
 
     public bool bIsMagnet;
     public bool bIsDoubleCoin;
+    public bool bIsTransparent;
 
 
     [Header("오브젝트")]
+    public FollowCamera followCamera;
     public GameObject attackAreaBox_basic;
     public GameObject attackAreaBox_up;
     public GameObject attackAreaBox_down;
@@ -65,6 +68,28 @@ public class PlayerController : MonoBehaviour
     Rigidbody rigid;
 
 
+    // 슬라이딩 시 콜라이더 크기 변경
+    public CapsuleCollider capsuleCollider;
+    public float desiredSlideHeight = 1.0f; // 슬라이드 중일 때의 콜라이더 높이
+    public float desiredSlideCenterY = 0.5f; // 슬라이드 중일 때의 콜라이더 센터 y 위치
+    private float originalHeight; // 원래의 콜라이더 높이
+    private Vector3 originalCenter; // 원래의 콜라이더 센터
+
+
+    [Header("잡다한 변수")]
+    private float timer = 0f;
+    private float interval = 1f; // 1초
+
+
+    public float raycastDistance; // 장애물 감지 레이 거리
+    private bool isObstacleDetected = false;
+    private float lastDetectionTime = 0f;
+    private float ignoreDuration = 0.5f; // 0.5초 동안은 감지 무시
+
+    public int iMoveCnt;
+    public int iAttackCnt;
+    public int iGoldCnt;
+
 
     private void Awake()
     {
@@ -75,24 +100,56 @@ public class PlayerController : MonoBehaviour
         rigid = GetComponent<Rigidbody>();
 
 
+        iMoveCnt = 0;
+        iAttackCnt = 0;
+        iGoldCnt = 0;
+
         GetRendererComponents();
     }
 
     private void Start()
     {
-        Invoke("MainGameStart",3f);
+        originalHeight = capsuleCollider.height;
+        originalCenter = capsuleCollider.center;
+
+        Invoke("MainGameStart", 3f);
     }
 
 
 
     void Update()
     {
-        if (bIsRun)
+        InputKey();
+       
+
+
+        timer += Time.deltaTime;
+
+        if (timer >= interval)
         {
-            //MoveForward();
+            playerInfo.MoveDistanceRecord++;
+            iMoveCnt++;
+            Debug.Log("Count: " + playerInfo.MoveDistanceRecord);
+
+            PlayerPrefs.SetFloat("MoveDistanceRecord", playerInfo.MoveDistanceRecord);
+
+            timer = 0f;
         }
 
-        InputKey();
+        // 무시할 시간이 지났다면 다시 감지 허용
+        if (Time.time - lastDetectionTime > ignoreDuration)
+        {
+            isObstacleDetected = false;
+        }
+
+        SenseObstacle_Up();
+        SenseObstacle_Down();
+
+
+        //if (bIsRun)
+        //{
+        //    MoveForward();
+        //}
     }
 
 
@@ -114,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
     void InputKey()
     {
-        if(bIsRun && !bIsStun)
+        if (bIsRun && !bIsStun)
         {
             if (Input.GetKeyDown(KeyCode.A)) MoveSideways(-4.5f);
             if (Input.GetKeyDown(KeyCode.D)) MoveSideways(4.5f);
@@ -146,17 +203,6 @@ public class PlayerController : MonoBehaviour
 
         // 좌우 이동에 대한 부드러운 이동만 적용
         transform.DOMoveX(targetPositionX, 0.3f); // 0.3초 동안 부드럽게 좌우 이동
-
-
-        // #. 예전 이동 함수
-        //public void MoveSideways(float distance)
-        //{
-        //    float targetPositionX = Mathf.Clamp(transform.position.x + distance, -9.0f, 9.0f);
-        //    Vector3 targetPosition = new Vector3(targetPositionX, transform.position.y, transform.position.z);
-
-        //    transform.position = targetPosition;
-        //}
-
     }
     // #. 벽에 부딪혔을 때 실행할 함수
     public void TouchWall(float distance)
@@ -184,6 +230,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
+
     // #. 슬라이딩 기능
     void Slide()
     {
@@ -191,24 +238,45 @@ public class PlayerController : MonoBehaviour
         bIsJump = false;
         anim.SetTrigger("doSlide");
         rigid.AddForce(Vector3.down * fSldieForce, ForceMode.Acceleration);
+
+        AdjustColliderSize(true);
     }
     public void EndSlide() // 애니메이션 이벤트에 들어가 있음
     {
         bIsSlide = false;
+
+        AdjustColliderSize(false);
     }
+
+    void AdjustColliderSize(bool isSliding)
+    {
+        if (isSliding)
+        {
+            // 슬라이딩 중인 경우, 콜라이더 크기 조절
+            capsuleCollider.height = desiredSlideHeight;
+            capsuleCollider.center = new Vector3(capsuleCollider.center.x, desiredSlideCenterY, capsuleCollider.center.z);
+        }
+        else
+        {
+            // 슬라이딩 종료 시, 콜라이더 크기 원래대로 복구
+            capsuleCollider.height = originalHeight;
+            capsuleCollider.center = originalCenter;
+        }
+    }
+
 
 
     // #. 공격 기능
     void Attack()
     {
-        if(!bAttackCoolTime)
+        if (!bAttackCoolTime)
         {
             StartCoroutine(ThrowRobot());
         }
     }
     IEnumerator ThrowRobot()
     {
-        if(bIsJump)
+        if (bIsJump)
         {
             bAttackCoolTime = true;
             attackAreaBox_down.SetActive(true);
@@ -236,7 +304,6 @@ public class PlayerController : MonoBehaviour
             yield break;
         }
 
-
         bAttackCoolTime = true;
         attackAreaBox_basic.SetActive(true);
 
@@ -247,12 +314,9 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         bAttackCoolTime = false;
         yield break;
-
-        
     }
 
 
-  
 
     public void DiePlayer()
     {
@@ -266,12 +330,12 @@ public class PlayerController : MonoBehaviour
 
 
 
-
     public void TakeDamage()
     {
-        if(!bIsDamage && !bIsDie)
+        if (!bIsDamage && !bIsDie)
         {
             bIsDamage = true;
+            followCamera.ShakeCamera();
             iHp--;
 
             if (iHp <= 0)
@@ -291,10 +355,6 @@ public class PlayerController : MonoBehaviour
         bIsDamage = false;
     }
 
-   
-
-
-
 
 
     public void TogglePause()
@@ -307,17 +367,37 @@ public class PlayerController : MonoBehaviour
 
 
 
+    // 맨홀 뚜껑을 밟았을 때 실행
+    public void StepManHole()
+    {
+        StartCoroutine(PlayerDieLayer());
+    }
+    IEnumerator PlayerDieLayer()
+    {
+        gameObject.layer = LayerMask.NameToLayer("PlayerDie");
+        yield return new WaitForSeconds(0.85f);
+        gameObject.layer = LayerMask.NameToLayer("Default");
+    }
 
-   
+
     // 코인을 얻었을 때 실행
     public void GetCoin()
     {
         playerInfo.GoldCnt++;
-        if(bIsDoubleCoin) // 획득량 2배 아이템을 얻었다면 2배 획득
+        iGoldCnt++;
+
+        if (bIsDoubleCoin) // 획득량 2배 아이템을 얻었다면 2배 획득
         {
             playerInfo.GoldCnt++;
+            iGoldCnt++;
         }
         PlayerPrefs.SetInt("PlayerGold", playerInfo.GoldCnt);
+
+
+
+        playerInfo.GetGoldCntRecord += 10;
+        PlayerPrefs.SetInt("GetGoldCntRecord", playerInfo.GetGoldCntRecord);
+        uIController.ClearAhceive_Other();
     }
 
     // 피버 게이지 쌓기
@@ -326,7 +406,7 @@ public class PlayerController : MonoBehaviour
         iNowFeverGauge++;
         SeeFeverGauge();
 
-        if(iNowFeverGauge == iFeverCnt && !bIsFever)
+        if (iNowFeverGauge == iFeverCnt && !bIsFever)
         {
             StartCoroutine(FeverOn());
             FeverOn();
@@ -335,9 +415,9 @@ public class PlayerController : MonoBehaviour
     // 피버 게이지 활성화 / 시각적인 효과
     public void SeeFeverGauge()
     {
-        for(int i = 0; i < iFeverCnt; i++)
+        for (int i = 0; i < iFeverCnt; i++)
         {
-            if(i < iNowFeverGauge)
+            if (i < iNowFeverGauge)
             {
                 feverGauge[i].SetActive(true);
             }
@@ -345,7 +425,7 @@ public class PlayerController : MonoBehaviour
             {
                 feverGauge[i].SetActive(false);
             }
-            
+
         }
     }
     // 피버 기능
@@ -457,6 +537,7 @@ public class PlayerController : MonoBehaviour
     // 1. 자석 아이템
     public void ActivateForMagnet()
     {
+        RecordItemCnt();
         StartCoroutine(ActivateCoroutine_Magnet(fDrationMagnet));
     }
     IEnumerator ActivateCoroutine_Magnet(float duration)
@@ -472,6 +553,7 @@ public class PlayerController : MonoBehaviour
     // 2. 골드 획득량 2배
     public void ActivateForDoubleCoin()
     {
+        RecordItemCnt();
         StartCoroutine(ActivateCoroutine_DoubleCoin(fDrationDoubleCoin));
     }
     IEnumerator ActivateCoroutine_DoubleCoin(float duration)
@@ -485,7 +567,8 @@ public class PlayerController : MonoBehaviour
     // 3. 체력 회복
     public void ActivateHealth()
     {
-        if(iHp <= 2)
+        RecordItemCnt();
+        if (iHp <= 2)
         {
             iHp++;
         }
@@ -493,21 +576,22 @@ public class PlayerController : MonoBehaviour
 
 
     // 4. 무적 아이템
-
     public void ActivateProtect()
     {
+        RecordItemCnt();
         StartCoroutine(ActivateCoroutine_Protect(fDrationProtect));
-
     }
     IEnumerator ActivateCoroutine_Protect(float duration)
     {
         SetAlphaZero();
         bIsDamage = true;
+        bIsTransparent = true;
 
         yield return new WaitForSeconds(duration);
 
         SetAlphaOne();
         bIsDamage = false;
+        bIsTransparent = false;
     }
     // #. 렌더 머테리얼 정보 추출
     private void GetRendererComponents()
@@ -574,11 +658,57 @@ public class PlayerController : MonoBehaviour
 
     }
 
+    // @. 아이템 획득 총 개수 상승 (업적용)
+    public void RecordItemCnt()
+    {
+        playerInfo.GetItemCntRecord++;
+        PlayerPrefs.SetInt("GetItemCntRecord", playerInfo.GetItemCntRecord);
+        uIController.ClearAhceive_Other();
+    }
+
+    // @. 공격 성공 횟수 상승 (업적용)
+    public void RecordAttackCnt()
+    {
+        playerInfo.SuccessAttackCntRecord++;
+        PlayerPrefs.SetInt("SuccessAttackCntRecord", playerInfo.SuccessAttackCntRecord);
+        uIController.ClearAhceive_Other();
+    }
 
 
 
+    private void SenseObstacle_Up()
+    {
+        RaycastHit hit_up;
+        if (Physics.Raycast(transform.position, Vector3.up, out hit_up, raycastDistance))
+        {
+            Debug.DrawRay(transform.position, Vector3.up * raycastDistance, Color.red);
 
+            if (hit_up.collider.CompareTag("Obstacle") && !isObstacleDetected)
+            {
+                playerInfo.JumpObstacleCntRecord++;
+                iAttackCnt++;
+                isObstacleDetected = true;
+                lastDetectionTime = Time.time;
+            }
+        }
+    }
 
+    private void SenseObstacle_Down()
+    {
+        RaycastHit hit_down;
+        if (Physics.Raycast(transform.position, Vector3.down, out hit_down, raycastDistance))
+        {
+            Debug.DrawRay(transform.position, Vector3.down * raycastDistance, Color.red);
+
+            if (hit_down.collider.CompareTag("Obstacle") && !isObstacleDetected)
+            {
+                playerInfo.JumpObstacleCntRecord++;
+                iAttackCnt++;
+                isObstacleDetected = true;
+                lastDetectionTime = Time.time;
+            }
+        }
+    }
 
 
     void OnCollisionEnter(Collision collision)
@@ -586,6 +716,22 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Floor") && bIsJump)
         {
             bIsJump = false;
+        }
+    }
+
+    void OnCollisionStay(Collision collision)
+    {
+        if (collision.collider.CompareTag("Floor"))
+        {
+            bIsGround = true;
+        }
+    }
+
+    void OnCollisionExit(Collision collision)
+    {
+        if (collision.collider.CompareTag("Floor"))
+        {
+            bIsGround = false;
         }
     }
 

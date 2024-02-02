@@ -10,14 +10,21 @@ public class StageInfo : MonoBehaviour
     public Transform position_Checkpoint;
     public Transform position_Endpoint;
 
+
+    public PlayerController player;
+
     private void Awake()
     {
+        player = FindObjectOfType<PlayerController>();
         Invoke("SetStageFalse", 60f);
     }
 
     private void Update()
     {
-        MoveForward();
+        if(!(player.bIsStun))
+        {
+            MoveForward();
+        } 
     }
 
     private void SetStageFalse()
