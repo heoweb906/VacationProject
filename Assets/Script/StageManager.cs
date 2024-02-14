@@ -38,7 +38,7 @@ public class StageManager : MonoBehaviour
     // #. 게임 최초 실행 시 맵 생성
     private void CreateGameStage()
     {
-        int randomIndex = Random.Range(0, stageInfos.Length); // 스테이지 랜덤으로 선택
+        int randomIndex = 0; // 게임 최초 실행 시에는 특정 맵만 생성
 
         // 임시로 0번 스테이지를 최초 생성, 추후에 최초의 스테이지도 랜덤으로 생성하도록 수정 
         StageInfo newStage = Instantiate(stageInfos[randomIndex], gamePosition.position, Quaternion.identity);
@@ -53,9 +53,11 @@ public class StageManager : MonoBehaviour
     // #. 다음 맵 생성 함수
     private void CreateNewStage()
     {
+        Time.timeScale += 0.1f;
+
         checkPosition_1 = checkPosition_2;
 
-        int randomIndex = Random.Range(0, stageInfos.Length);  // 스테이지 랜덤으로 선택
+        int randomIndex = Random.Range(1, stageInfos.Length);  // 스테이지 랜덤으로 선택
         StageInfo newStage = Instantiate(stageInfos[randomIndex], endPosition.position, Quaternion.identity);
         SetManagerInfo(newStage);
     }

@@ -15,6 +15,10 @@ public class AttackRobot_UP : MonoBehaviour
 
     private bool isHit = false;
 
+
+
+
+
     private void Awake()
     {
         pplayer = FindObjectOfType<PlayerController>();

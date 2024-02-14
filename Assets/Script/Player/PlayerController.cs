@@ -111,8 +111,6 @@ public class PlayerController : MonoBehaviour
     {
         originalHeight = capsuleCollider.height;
         originalCenter = capsuleCollider.center;
-
-        Invoke("MainGameStart", 3f);
     }
 
 
@@ -121,8 +119,6 @@ public class PlayerController : MonoBehaviour
     {
         InputKey();
        
-
-
         timer += Time.deltaTime;
 
         if (timer >= interval)
@@ -154,13 +150,17 @@ public class PlayerController : MonoBehaviour
 
 
 
-
+    public void FadeInPlayer()
+    {
+        Invoke("MainGameStart", 1.2f);
+    }
     // #. 게임 최초 실행 시 동작하는 함수
     public void MainGameStart()
     {
         bIsRun = true;
         anim.SetBool("isRun", true);
     }
+
     // #. 게임이 종료될 때 동작하는 함수
     public void MainGameEnd()
     {
@@ -320,6 +320,7 @@ public class PlayerController : MonoBehaviour
 
     public void DiePlayer()
     {
+        Time.timeScale = 1f;
         bIsRun = false;
         bIsDie = true;
 

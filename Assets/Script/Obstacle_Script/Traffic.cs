@@ -7,15 +7,17 @@ public class Traffic : MonoBehaviour
 {
     public float moveSpeed; // 이동 속도
     private bool bIsMove = false; // 이동 중인지 여부를 나타내는 플래그
+    private PlayerController player;
 
     private void Awake()
     {
+        player = FindObjectOfType<PlayerController>();
         StartMoving();
     }
 
     private void Update()
     {
-        if(bIsMove)
+        if(bIsMove && player.bIsRun)
         {
             MoveBackward();
         }

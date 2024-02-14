@@ -42,10 +42,18 @@ public class UIController_InGame : MonoBehaviour
     public TMP_Text text_movedistance;
     public TMP_Text text_attackCnt;
     public TMP_Text text_getgoldCnt;
-   
+
+    [Header("페이드 인 관련")]
+    public GameObject ImageFadeI;
+    public Image ImageFadeIn;
+    public float fadeDuration = 2f; // 페이드 인에 걸리는 시간
+
 
     public void Awake()
     {
+        // #. 페이드 인
+        FadeInGameStart(); 
+
         playerInfo = FindObjectOfType<PlayerInfomation>();
         soundManager = FindObjectOfType<SoundManager>();
         gameManager = FindObjectOfType<GameManager>();
@@ -54,6 +62,7 @@ public class UIController_InGame : MonoBehaviour
         volumeEffectSlider.value = soundManager.fVolumeEffect;
     }
 
+   
 
     public void Update()
     {
@@ -122,6 +131,37 @@ public class UIController_InGame : MonoBehaviour
     }
 
 
+    private void FadeInGameStart()
+    {
+        StartCoroutine(FadeInRoutine());
+    }
+    private IEnumerator FadeInRoutine()
+    {
+        // 시작 알파값은 0
+        float startAlpha = 1f;
+        // 목표 알파값은 1
+        float targetAlpha = 0f;
+        // 현재 시간
+        float currentTime = 0f;
+
+        // 시작부터 목표까지 걸리는 시간
+        while (currentTime < fadeDuration)
+        {
+            // 시간 흐름에 따른 알파값 변경
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeDuration);
+            // 이미지의 알파값 설정
+            ImageFadeIn.color = new Color(ImageFadeIn.color.r, ImageFadeIn.color.g, ImageFadeIn.color.b, alpha);
+
+            // 현재 시간 업데이트
+            currentTime += Time.deltaTime;
+            // 다음 프레임 대기
+            yield return null;
+        }
+
+        player.FadeInPlayer();
+    }
+
+
 
     // #. 죽었을 때 게임오버패널 띄우기
     public void OnOffGameOverPanel()
@@ -162,7 +202,12 @@ public class UIController_InGame : MonoBehaviour
         SceneManager.LoadScene("Menu");
     }
 
-    
+    public void ReStart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Play");
+    }
+
     public void ClearAhceive_RunDistance()
     {
         

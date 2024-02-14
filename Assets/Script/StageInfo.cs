@@ -21,7 +21,7 @@ public class StageInfo : MonoBehaviour
 
     private void Update()
     {
-        if(!(player.bIsStun))
+        if(!(player.bIsStun) && player.bIsRun)
         {
             MoveForward();
         } 

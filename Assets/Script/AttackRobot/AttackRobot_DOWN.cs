@@ -15,6 +15,11 @@ public class AttackRobot_DOWN : MonoBehaviour
 
     private bool isHit = false;
 
+    public GameObject Lockon;
+    public Collider AttackSense;
+
+
+
     private void Awake()
     {
         pplayer = FindObjectOfType<PlayerController>();

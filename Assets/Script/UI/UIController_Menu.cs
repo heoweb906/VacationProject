@@ -21,6 +21,10 @@ public class UIController_Menu : MonoBehaviour
     public Slider volumeBGMSlider;
     public Slider volumeEffectSlider;
 
+    public GameObject ImageFadeOu;
+    public Image ImageFadeOut;
+    public float fadeDuration = 2f; // 페이드 아웃에 걸리는 시간
+
 
     [Header("업적 관련")]
     private float moveRecord;  // 이동 거리
@@ -52,6 +56,7 @@ public class UIController_Menu : MonoBehaviour
 
 
 
+
     public void Update()
     {
         // 어떤 창이 켜져 있을 때 ESC키를 누르면 활성화 되어 있는 창이 꺼짐
@@ -71,12 +76,46 @@ public class UIController_Menu : MonoBehaviour
     }
 
 
-
     // #. 게임 시작 버튼
     public void GameStartButton()
     {
-        SceneManager.LoadScene("Play");
+        ImageFadeOu.SetActive(true);
+        StartCoroutine(FadeOutRoutine());
     }
+    private IEnumerator FadeOutRoutine()
+    {
+        // 시작 알파값은 0
+        float startAlpha = 0f;
+        // 목표 알파값은 1
+        float targetAlpha = 1f;
+        // 현재 시간
+        float currentTime = 0f;
+
+        // 시작부터 목표까지 걸리는 시간
+        while (currentTime < fadeDuration)
+        {
+            // 시간 흐름에 따른 알파값 변경
+            float alpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeDuration);
+            // 이미지의 알파값 설정
+            ImageFadeOut.color = new Color(ImageFadeOut.color.r, ImageFadeOut.color.g, ImageFadeOut.color.b, alpha);
+
+            // 현재 시간 업데이트
+            currentTime += Time.deltaTime;
+            // 다음 프레임 대기
+            yield return null;
+        }
+
+        // 페이드 아웃이 완료되면 씬 로드
+        SceneManager.LoadScene("Loading");
+    }
+
+
+
+
+
+
+
+
 
 
 
