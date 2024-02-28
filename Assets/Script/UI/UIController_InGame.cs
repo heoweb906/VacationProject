@@ -23,6 +23,8 @@ public class UIController_InGame : MonoBehaviour
     public Slider volumeBGMSlider;
     public Slider volumeEffectSlider;
 
+    public TMP_Text text_MoveScore;
+
     public TMP_Text text_GoldCnt; // 골드 현황 카운트
     public TMP_Text text_AttackCnt; // 공격 현황 카운트
     public GameObject image_MagneticItem; // 자석 아이템 아이콘
@@ -72,6 +74,8 @@ public class UIController_InGame : MonoBehaviour
         ShowItemIcon();
 
         ClearAhceive_RunDistance();
+
+        text_MoveScore.text = (player.iMoveCnt * 100).ToString();
     }
 
 
@@ -80,7 +84,7 @@ public class UIController_InGame : MonoBehaviour
     private void ShowGoldCount()
     {
         int playerGold = playerInfo.GoldCnt;
-        string formattedGold = string.Format("Gold : {0:D4}", playerGold); // 네 자리 숫자로 포맷팅
+        string formattedGold = string.Format("{0:D4}", playerGold); // 네 자리 숫자로 포맷팅
         text_GoldCnt.text = formattedGold; // UI Text에 골드 정보 표시
     }
 
@@ -88,7 +92,7 @@ public class UIController_InGame : MonoBehaviour
     private void ShowAttackCount()
     {
         int playerAttack = player.iNowFeverGauge;
-        string formattedGold = string.Format("Attack : {0:D1}", playerAttack); // 네 자리 숫자로 포맷팅
+        string formattedGold = string.Format("{0:D1}", playerAttack); // 네 자리 숫자로 포맷팅
         text_AttackCnt.text = formattedGold; // UI Text에 골드 정보 표시
     }
 
@@ -333,11 +337,23 @@ public class UIController_InGame : MonoBehaviour
             playerInfo.SuccessAttackCntRecord_Bool++;
             PlayerPrefs.SetInt("SuccessAttackCntRecord_Bool", 3);
         }
+        else if (playerInfo.SuccessAttackCntRecord >= 100 && playerInfo.SuccessAttackCntRecord_Bool == 3)
+        {
+            ShowAcheiveAlrm(Alrmattack[3]);
+            playerInfo.SuccessAttackCntRecord_Bool++;
+            PlayerPrefs.SetInt("SuccessAttackCntRecord_Bool", 4);
+        }
+        else if (playerInfo.SuccessAttackCntRecord >= 200 && playerInfo.SuccessAttackCntRecord_Bool == 4)
+        {
+            ShowAcheiveAlrm(Alrmattack[4]);
+            playerInfo.SuccessAttackCntRecord_Bool++;
+            PlayerPrefs.SetInt("SuccessAttackCntRecord_Bool", 5);
+        }
 
 
 
         //playerInfo.JumpObstacleCntRecord;
-        if (playerInfo.JumpObstacleCntRecord >= 100 && playerInfo.JumpObstacleCntRecord_Bool == 0)
+        if (playerInfo.JumpObstacleCntRecord >= 10 && playerInfo.JumpObstacleCntRecord_Bool == 0)
         {
             ShowAcheiveAlrm(Alrmobstacle[0]);
             playerInfo.JumpObstacleCntRecord_Bool++;
@@ -354,6 +370,18 @@ public class UIController_InGame : MonoBehaviour
             ShowAcheiveAlrm(Alrmobstacle[2]);
             playerInfo.JumpObstacleCntRecord_Bool++;
             PlayerPrefs.SetInt("JumpObstacleCntRecord_Bool", 3);
+        }
+        else if (playerInfo.JumpObstacleCntRecord >= 250 && playerInfo.JumpObstacleCntRecord_Bool == 3)
+        {
+            ShowAcheiveAlrm(Alrmobstacle[3]);
+            playerInfo.JumpObstacleCntRecord_Bool++;
+            PlayerPrefs.SetInt("JumpObstacleCntRecord_Bool", 4);
+        }
+        else if (playerInfo.JumpObstacleCntRecord >= 500 && playerInfo.JumpObstacleCntRecord_Bool == 4)
+        {
+            ShowAcheiveAlrm(Alrmobstacle[4]);
+            playerInfo.JumpObstacleCntRecord_Bool++;
+            PlayerPrefs.SetInt("JumpObstacleCntRecord_Bool", 5);
         }
     }
 
