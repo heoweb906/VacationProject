@@ -13,10 +13,16 @@ public class SoundManager : MonoBehaviour
 
 
     [Header("사운드 - BGM")]
-    public AudioSource audio_TestBGM;
+    public AudioSource audio_MainMenuBGM;
+    public AudioSource audio_GameOverBGM;
 
     [Header("사운드 - Effect Sound")]
-    public AudioSource audio_TestEffect;
+    public AudioSource audio_AcheiveClearEffect;
+    public AudioSource audio_AttackEffect;
+    public AudioSource ButtonClickEffect;
+    public AudioSource CharacterHitEffect;
+    public AudioSource CharacterMoveEffect;
+    public AudioSource GetCoinEffect;
 
 
 
@@ -31,7 +37,6 @@ public class SoundManager : MonoBehaviour
         {
             fVolumeBGM = PlayerPrefs.GetFloat("Volume_BGMSound");
         }
-
         if (!PlayerPrefs.HasKey("Volume_EffectSound"))
         {
             fVolumeEffect = 0.5f;
@@ -44,6 +49,9 @@ public class SoundManager : MonoBehaviour
 
 
         StartSound();
+
+
+
     }
 
 
@@ -51,11 +59,16 @@ public class SoundManager : MonoBehaviour
     private void StartSound()
     {
         // #. 추가되는 사운드 계속 추가해야 함
-        audio_TestBGM.volume = fVolumeBGM;
+        audio_MainMenuBGM.volume = fVolumeBGM;
+        audio_GameOverBGM.volume = fVolumeBGM;
 
 
-
-
+        audio_AcheiveClearEffect.volume = fVolumeEffect;
+        audio_AttackEffect.volume = fVolumeEffect;
+        ButtonClickEffect.volume = fVolumeEffect;
+        CharacterHitEffect.volume = fVolumeEffect; ;
+        CharacterMoveEffect.volume = fVolumeEffect; ;
+        GetCoinEffect.volume = fVolumeEffect; ;
     }
 
 
@@ -67,7 +80,8 @@ public class SoundManager : MonoBehaviour
 
 
         // #. 추가되는 사운드들 적용해야 함
-        audio_TestBGM.volume = fVolumeBGM;
+        audio_MainMenuBGM.volume = fVolumeBGM;
+        audio_GameOverBGM.volume = fVolumeBGM;
     }
 
 
@@ -80,8 +94,12 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetFloat("Volume_EffectSound", fVolumeEffect);
 
 
-
-
         // #. 추가되는 사운드들 적용해야 함
+        audio_AcheiveClearEffect.volume = fVolumeEffect;
+        audio_AttackEffect.volume = fVolumeEffect;
+        ButtonClickEffect.volume = fVolumeEffect;
+        CharacterHitEffect.volume = fVolumeEffect; ;
+        CharacterMoveEffect.volume = fVolumeEffect; ;
+        GetCoinEffect.volume = fVolumeEffect; ;
     }
 }

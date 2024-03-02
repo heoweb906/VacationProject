@@ -10,14 +10,13 @@ public class AttackRobot_UP : MonoBehaviour
     public float raycastDistance; // Raycast의 거리
     public float moveSpeed; // 이동 속도
 
-    private bool playerDetected = false;
+    public bool playerDetected = false;
     private Transform playerTransform;
 
     private bool isHit = false;
 
 
-
-
+    public float frontDistance;
 
     private void Awake()
     {
@@ -46,7 +45,8 @@ public class AttackRobot_UP : MonoBehaviour
     private void DetectPlayerAndDestroy()
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, raycastDistance))
+        Vector3 raycastOrigin = transform.position + transform.forward * frontDistance;
+        if (Physics.Raycast(raycastOrigin, Vector3.down, out hit, raycastDistance))
         {
             Debug.DrawRay(transform.position, Vector3.down * raycastDistance, Color.red);
 

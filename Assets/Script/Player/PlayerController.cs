@@ -5,12 +5,14 @@ using TMPro;
 using UnityEngine;
 using DG.Tweening;
 using Unity.VisualScripting;
+using MoreMountains.Tools;
 
 public class PlayerController : MonoBehaviour
 {
     [Header("싱글톤 / 게임 진행 관련 오브젝트")]
     public PlayerInfomation playerInfo;
     public UIController_InGame uIController;
+    public SoundManager soundManager;
 
     [Header("플레이어 능력치 / 수치")]
     public int iHp;
@@ -63,6 +65,9 @@ public class PlayerController : MonoBehaviour
     public Material transparentMaterial;
     private Renderer[] rendererComponents;
 
+    public GameObject bodyMain;
+    public GameObject bodySub;
+
 
     Animator anim;
     Rigidbody rigid;
@@ -95,8 +100,9 @@ public class PlayerController : MonoBehaviour
     {
         playerInfo = FindObjectOfType<PlayerInfomation>();
         uIController = FindObjectOfType<UIController_InGame>();
+        soundManager = FindObjectOfType<SoundManager>();
 
-        anim = GetComponent<Animator>();
+        // anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody>();
 
 
@@ -158,14 +164,14 @@ public class PlayerController : MonoBehaviour
     public void MainGameStart()
     {
         bIsRun = true;
-        anim.SetBool("isRun", true);
+        //anim.SetBool("isRun", true);
     }
 
     // #. 게임이 종료될 때 동작하는 함수
     public void MainGameEnd()
     {
         bIsRun = false;
-        anim.SetBool("isRun", false);
+        //anim.SetBool("isRun", false);
     }
 
 
@@ -198,6 +204,8 @@ public class PlayerController : MonoBehaviour
     // #. 양 옆 이동 함수
     public void MoveSideways(float distance)
     {
+        soundManager.CharacterMoveEffect.Play();
+
         float targetPositionX = Mathf.Clamp(transform.position.x + distance, -9.0f, 9.0f);
         Vector3 targetPosition = new Vector3(targetPositionX, transform.position.y, transform.position.z);
 
@@ -213,6 +221,8 @@ public class PlayerController : MonoBehaviour
 
         // 좌우 이동에 대한 부드러운 이동만 적용
         transform.DOMoveX(targetPositionX, 0.3f); // 0.3초 동안 부드럽게 좌우 이동
+
+        TakeDamage();
     }
 
 
@@ -226,7 +236,7 @@ public class PlayerController : MonoBehaviour
 
         rigid.AddForce(Vector3.up * fJumpForce_, ForceMode.Impulse);
 
-        anim.SetTrigger("doJump");
+        //anim.SetTrigger("doJump");
     }
 
 
@@ -236,7 +246,7 @@ public class PlayerController : MonoBehaviour
     {
         bIsSlide = true;
         bIsJump = false;
-        anim.SetTrigger("doSlide");
+        //anim.SetTrigger("doSlide");
         rigid.AddForce(Vector3.down * fSldieForce, ForceMode.Acceleration);
 
         AdjustColliderSize(true);
@@ -271,6 +281,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!bAttackCoolTime)
         {
+            soundManager.audio_AttackEffect.Play();
+
             StartCoroutine(ThrowRobot());
         }
     }
@@ -326,7 +338,10 @@ public class PlayerController : MonoBehaviour
 
         uIController.OnOffGameOverPanel();
 
-        anim.SetBool("isRun", false);
+        // 메인 BGM도 종료해야 함
+        soundManager.audio_GameOverBGM.Play();
+
+        // anim.SetBool("isRun", false);
     }
 
 
@@ -335,6 +350,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!bIsDamage && !bIsDie)
         {
+            soundManager.CharacterHitEffect.Play();
+
             bIsDamage = true;
             followCamera.ShakeCamera();
             iHp--;
@@ -384,6 +401,8 @@ public class PlayerController : MonoBehaviour
     // 코인을 얻었을 때 실행
     public void GetCoin()
     {
+        soundManager.GetCoinEffect.Play();
+
         playerInfo.GoldCnt++;
         iGoldCnt++;
 
@@ -580,8 +599,26 @@ public class PlayerController : MonoBehaviour
     public void ActivateProtect()
     {
         RecordItemCnt();
-        StartCoroutine(ActivateCoroutine_Protect(fDrationProtect));
+
+        StartCoroutine(ActivateCoroutine_Protect____(fDrationProtect));
+
+        // StartCoroutine(ActivateCoroutine_Protect(fDrationProtect));
     }
+    IEnumerator ActivateCoroutine_Protect____(float duration)
+    {
+        bodyMain.SetActive(false);
+        bodySub.SetActive(true);
+        bIsDamage = true;
+        bIsTransparent = true;
+
+        yield return new WaitForSeconds(duration);
+
+        bodyMain.SetActive(true);
+        bodySub.SetActive(false);
+        bIsDamage = false;
+        bIsTransparent = false;
+    }
+
     IEnumerator ActivateCoroutine_Protect(float duration)
     {
         SetAlphaZero();

@@ -1,0 +1,825 @@
+fileFormatVersion: 2
+guid: f837fffef1049e043892d84c6720d276
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Medal_0
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1380
+        width: 3049
+        height: 1747
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 568a6009a0642cd478f439baf23ca03c
+      internalID: 496837543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_1
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 1142
+        width: 392
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa9a408cc97d1a24e9d4d2125c3e2891
+      internalID: 867955869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_2
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 1142
+        width: 391
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 243c42db7698c0a49a9503858651ee95
+      internalID: 1045744664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_3
+      rect:
+        serializedVersion: 2
+        x: 2899
+        y: 1029
+        width: 242
+        height: 239
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7327f20892b9b8c45b126c9ef2aa98ac
+      internalID: 958101164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_4
+      rect:
+        serializedVersion: 2
+        x: 606
+        y: 737
+        width: 311
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 679bbe7cb2a5eb743b56d75a23a01116
+      internalID: 745841224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_9
+      rect:
+        serializedVersion: 2
+        x: 1132
+        y: 725
+        width: 276
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55767da8483adce4ebeccfb1a8834b74
+      internalID: 1913851561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_14
+      rect:
+        serializedVersion: 2
+        x: 1624
+        y: 734
+        width: 259
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0db3cd196c6e61a43a05cac5587a6681
+      internalID: 138821596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_19
+      rect:
+        serializedVersion: 2
+        x: 2079
+        y: 741
+        width: 334
+        height: 73
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36d02f83a6772814c86edb19143bdbfe
+      internalID: 282044032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_20
+      rect:
+        serializedVersion: 2
+        x: 2622
+        y: 714
+        width: 256
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5bb29ef981e166348aa72c21962ea338
+      internalID: -1168310160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_25
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 586
+        width: 301
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c368a99238ba3b343a2eff617a125c9c
+      internalID: -1123883449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_30
+      rect:
+        serializedVersion: 2
+        x: 1140
+        y: 581
+        width: 263
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31f70d6324528124fb3c03ba59421921
+      internalID: -631097181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_34
+      rect:
+        serializedVersion: 2
+        x: 1633
+        y: 584
+        width: 247
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56699b6f818b817448155b82e61a8f0a
+      internalID: -1936045565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_38
+      rect:
+        serializedVersion: 2
+        x: 2103
+        y: 590
+        width: 291
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da50f934d5f8c764594eded6d1c169dd
+      internalID: 591807936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_39
+      rect:
+        serializedVersion: 2
+        x: 2646
+        y: 574
+        width: 208
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5263d9f639abfb74dbfbde87c70fc17a
+      internalID: 659694199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_42
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 438
+        width: 294
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 045607ea020953246b43cecd755b5c9c
+      internalID: -370445303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_47
+      rect:
+        serializedVersion: 2
+        x: 1148
+        y: 433
+        width: 253
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98b458056bf23794dabb4c82e0f7650f
+      internalID: -1869215412
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_51
+      rect:
+        serializedVersion: 2
+        x: 1655
+        y: 436
+        width: 203
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 308d48ec870651d4899ffb9b5bdff147
+      internalID: 542047738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_54
+      rect:
+        serializedVersion: 2
+        x: 2108
+        y: 441
+        width: 274
+        height: 72
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1f38a8aebc00641a468d4929271846
+      internalID: -60087214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_56
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 420
+        width: 198
+        height: 95
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25aa6b60bcddfc947a71bfdeb832b0e0
+      internalID: -809826743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_60
+      rect:
+        serializedVersion: 2
+        x: 641
+        y: 287
+        width: 243
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 31c5d098555ffae4689224f384af1166
+      internalID: -1491089340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_64
+      rect:
+        serializedVersion: 2
+        x: 1173
+        y: 282
+        width: 201
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4db8a952a43912d40b3d1f662ba5b88a
+      internalID: -474436484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_67
+      rect:
+        serializedVersion: 2
+        x: 1652
+        y: 289
+        width: 203
+        height: 84
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5abc31d4b3e62d1468cb0e833d59e2a4
+      internalID: -225718697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_70
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 290
+        width: 236
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f525051410cdb409de1e690a6ab8bd
+      internalID: 120223306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_71
+      rect:
+        serializedVersion: 2
+        x: 2652
+        y: 273
+        width: 196
+        height: 91
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75a1bb8498e31804da286346ed2e3082
+      internalID: 1817559861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_74
+      rect:
+        serializedVersion: 2
+        x: 626
+        y: 138
+        width: 246
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1294678bb3e955349a1ae92f1e7d7054
+      internalID: -1279754454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_78
+      rect:
+        serializedVersion: 2
+        x: 1177
+        y: 129
+        width: 193
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bfcf04b85b08214c9be01d50a51c865
+      internalID: 1221369764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_82
+      rect:
+        serializedVersion: 2
+        x: 1657
+        y: 137
+        width: 198
+        height: 86
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a4e169f54a44048a6f0565165bfa6f
+      internalID: -902422806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_85
+      rect:
+        serializedVersion: 2
+        x: 2132
+        y: 141
+        width: 227
+        height: 74
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 269f37216f162294981b6c61b3a6bffd
+      internalID: -225494870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Medal_86
+      rect:
+        serializedVersion: 2
+        x: 2658
+        y: 119
+        width: 194
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff7193e5ba8dd534fb3a1ec4eff9c5c8
+      internalID: -1591896347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: cbed09c96cb71054db1bfefa190e316a
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Medal_0: 496837543
+      Medal_1: 867955869
+      Medal_10: -559300523
+      Medal_11: -1161428846
+      Medal_12: -1658439221
+      Medal_13: -526726569
+      Medal_14: 138821596
+      Medal_15: 837951127
+      Medal_16: 912594577
+      Medal_17: -424700180
+      Medal_18: -1894876551
+      Medal_19: 282044032
+      Medal_2: 1045744664
+      Medal_20: -1168310160
+      Medal_21: 878499536
+      Medal_22: -362146779
+      Medal_23: -795428536
+      Medal_24: -1242961421
+      Medal_25: -1123883449
+      Medal_26: -2145969244
+      Medal_27: -1160191928
+      Medal_28: -1885547999
+      Medal_29: 642768071
+      Medal_3: 958101164
+      Medal_30: -631097181
+      Medal_31: 1034077403
+      Medal_32: 1565541094
+      Medal_33: -2130679792
+      Medal_34: -1936045565
+      Medal_35: 531107768
+      Medal_36: 1229625992
+      Medal_37: 1759557893
+      Medal_38: 591807936
+      Medal_39: 659694199
+      Medal_4: 745841224
+      Medal_40: -192053175
+      Medal_41: -249442075
+      Medal_42: -370445303
+      Medal_43: 1567069927
+      Medal_44: -154512356
+      Medal_45: 1914048174
+      Medal_46: 1358579863
+      Medal_47: -1869215412
+      Medal_48: 430388219
+      Medal_49: 1354710956
+      Medal_5: 790153492
+      Medal_50: -1763414174
+      Medal_51: 542047738
+      Medal_52: 920378736
+      Medal_53: -726047253
+      Medal_54: -60087214
+      Medal_55: 1715290941
+      Medal_56: -809826743
+      Medal_57: -572601673
+      Medal_58: -1582455541
+      Medal_59: -796990142
+      Medal_6: 1784707669
+      Medal_60: -1491089340
+      Medal_61: 1959705202
+      Medal_62: -1904558522
+      Medal_63: 555706466
+      Medal_64: -474436484
+      Medal_65: -839089872
+      Medal_66: -798425727
+      Medal_67: -225718697
+      Medal_68: 250121165
+      Medal_69: -757084725
+      Medal_7: -987882812
+      Medal_70: 120223306
+      Medal_71: 1817559861
+      Medal_72: -1359799342
+      Medal_73: -732113546
+      Medal_74: -1279754454
+      Medal_75: 2029914726
+      Medal_76: -1349644751
+      Medal_77: -536733883
+      Medal_78: 1221369764
+      Medal_79: -52916145
+      Medal_8: 1583992332
+      Medal_80: -1464991079
+      Medal_81: 1348088486
+      Medal_82: -902422806
+      Medal_83: 1956472829
+      Medal_84: 2115436666
+      Medal_85: -225494870
+      Medal_86: -1591896347
+      Medal_87: 667605406
+      Medal_88: -674486066
+      Medal_9: 1913851561
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

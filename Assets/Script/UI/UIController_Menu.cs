@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using MoreMountains.Tools;
 
 public class UIController_Menu : MonoBehaviour
 {
@@ -50,6 +51,9 @@ public class UIController_Menu : MonoBehaviour
         volumeEffectSlider.value = soundManager.fVolumeEffect;
 
 
+        soundManager.audio_MainMenuBGM.Play();
+
+
         // #. 업적 정보 업데이트
         GetPlayerInfoRecord();
     }
@@ -62,6 +66,8 @@ public class UIController_Menu : MonoBehaviour
         // 어떤 창이 켜져 있을 때 ESC키를 누르면 활성화 되어 있는 창이 꺼짐
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            soundManager.ButtonClickEffect.Play();
+
             if (panelOption.activeSelf)
             {
                 panelOption.SetActive(false); 
@@ -79,6 +85,8 @@ public class UIController_Menu : MonoBehaviour
     // #. 게임 시작 버튼
     public void GameStartButton()
     {
+        soundManager.ButtonClickEffect.Play();
+
         ImageFadeOu.SetActive(true);
         StartCoroutine(FadeOutRoutine());
     }
@@ -112,17 +120,10 @@ public class UIController_Menu : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-
     // #. 옵션 창 켜고 끄는 함수
     public void OnOffOptionPanel()
     {
+        soundManager.ButtonClickEffect.Play();
         volumeBGMSlider.value = soundManager.fVolumeBGM;
         volumeEffectSlider.value = soundManager.fVolumeEffect;
 
@@ -140,6 +141,7 @@ public class UIController_Menu : MonoBehaviour
     // #. 업적 창 켜고 끄는 함수
     public void OnOffAchievePanel()
     {
+        soundManager.ButtonClickEffect.Play();
         if (panelAchieve != null)
         {
             panelAchieve.SetActive(!panelAchieve.activeSelf); // 현재 상태의 반대로 설정
@@ -154,6 +156,8 @@ public class UIController_Menu : MonoBehaviour
     // #. 게임 종료 버튼
     public void QuitGame() 
     {
+        soundManager.ButtonClickEffect.Play();
+
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #else

@@ -62,6 +62,10 @@ public class UIController_InGame : MonoBehaviour
 
         volumeBGMSlider.value = soundManager.fVolumeBGM;
         volumeEffectSlider.value = soundManager.fVolumeEffect;
+
+
+
+        // 나중에 메인 게임 시작되면 BGM 재생
     }
 
    
@@ -111,6 +115,8 @@ public class UIController_InGame : MonoBehaviour
     // #. 옵션 창 켜고 끄는 함수
     public void OnOffOptionPanel()
     {
+        soundManager.ButtonClickEffect.Play();
+
         volumeBGMSlider.value = soundManager.fVolumeBGM;
         volumeEffectSlider.value = soundManager.fVolumeEffect;
 
@@ -202,12 +208,16 @@ public class UIController_InGame : MonoBehaviour
     // #. 게임 시작 버튼
     public void GoToMenu()
     {
+        soundManager.ButtonClickEffect.Play();
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("Menu");
     }
 
     public void ReStart()
     {
+        soundManager.ButtonClickEffect.Play();
+
         Time.timeScale = 1f;
         SceneManager.LoadScene("Play");
     }
@@ -389,6 +399,8 @@ public class UIController_InGame : MonoBehaviour
 
     public void ShowAcheiveAlrm(Image panelAlrm)
     {
+        soundManager.audio_AcheiveClearEffect.Play();
+
         Vector3 startPosition = panelAlrm.transform.position;
 
         // 화면 가로 크기에 대한 비율을 고려하여 이동 거리 조절
