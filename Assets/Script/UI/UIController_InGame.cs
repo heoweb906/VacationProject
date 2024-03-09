@@ -185,13 +185,13 @@ public class UIController_InGame : MonoBehaviour
             {
                 Time.timeScale = 0f; // 시간을 정지시킴
 
-                string text_1 = string.Format("이동한 거리 : {0}", player.iMoveCnt);
+                string text_1 = string.Format("{0}", player.iMoveCnt);
                 text_movedistance.text = text_1; // UI Text에 골드 정보 표시
 
-                string text_2 = string.Format("어택 횟수 : {0}", player.iAttackCnt);
+                string text_2 = string.Format("{0}", player.iAttackCnt);
                 text_attackCnt.text = text_2; // UI Text에 골드 정보 표시
 
-                string text_3 = string.Format("획득 재화 : {0}", player.iGoldCnt);
+                string text_3 = string.Format("{0}", player.iGoldCnt);
                 text_getgoldCnt.text = text_3; // UI Text에 골드 정보 표시
             }
             else

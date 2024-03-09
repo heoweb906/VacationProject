@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &1933230532283524430
+--- !u!1001 &2444291258194669650
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,62 +8,62 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.4369755
+      value: 12.764536
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0020809728
+      value: 0.00000023841858
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.035166
+      value: 11.40897
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.7071068
+      value: 0.000000021855694
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalRotation.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalRotation.z
       value: -0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -8679921383154817045, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -7511558181221131132, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: -7511558181221131132, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0e64443fde3c24445938cf8dcecd9b75, type: 2}
-    - target: {fileID: 919132149155446097, guid: 15e27c2b64efd3f4a8717caea765e75e,
+    - target: {fileID: 919132149155446097, guid: 719420a0b99437143ad47eefada55533,
         type: 3}
       propertyPath: m_Name
       value: Fire hydrant 2 (1)
@@ -72,4 +72,4 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 15e27c2b64efd3f4a8717caea765e75e, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 719420a0b99437143ad47eefada55533, type: 3}
